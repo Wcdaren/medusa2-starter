@@ -22,7 +22,7 @@ export default function IndexRoute() {
         className="h-[800px] !max-w-full -mt-[calc(var(--mkt-header-height)+3rem)] md:-mt-[calc(var(--mkt-header-height-desktop)+2rem)] pt-[var(--mkt-header-height)] md:pt-[var(--mkt-header-height-desktop)]"
         content={
           <div className="text-center w-full space-y-9">
-            <h4 className="font-italiana text-2xl">COFFEE & COMMUNITY</h4>
+            <h4 className="font-italiana text-2xl">COFFEE & COMMUNITY(Rick)</h4>
             <h1 className="text-8xl font-aboreto">BARRIO</h1>
             <p className="max-w-prose mx-auto text-lg">
               Discover our artisan-roasted coffee, crafted with care and delivered to your door. At Barrio, we’re more
