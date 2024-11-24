@@ -6,7 +6,7 @@
     "start": "turbo start",
     "dev": "turbo dev",
     "lint": "turbo lint",
-    "generate-env": "cp ./apps/medusa/.env.template ./apps/medusa/.env && cp ./apps/storefront/.env.template ./apps/storefront/.env",
+    "generate-env": "cp ./apps/medusa/.env.template ./apps/medusa/.env && cp ./apps/storefront/.env.template ./apps/storefront/.env && cp ./apps/web/.env.template ./apps/web/.env",
     "medusa:init": "turbo run medusa:init --filter=medusa",
     "format": "turbo run format",
     "clean": "find . -name \"node_modules\" -type d -prune -exec rm -rf '{}'"
