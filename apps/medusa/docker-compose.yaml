@@ -16,7 +16,16 @@ services:
       - '6379:6379'
     volumes:
       - redis:/data
+  # meilisearch:
+  #   image: getmeili/meilisearch:v1.11
+  #   ports:
+  #     - "7700:7700"
+  #   environment:
+  #     - MEILI_MASTER_KEY=MASTER_KEY # 修改为你的密钥
+  #   volumes:
+  #     - meilisearch_data:/meili_data
 
 volumes:
   database:
   redis:
+  # meilisearch_data:

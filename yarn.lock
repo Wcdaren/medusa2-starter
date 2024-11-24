@@ -2413,7 +2413,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@graphql-tools/merge@npm:^9.0.10, @graphql-tools/merge@npm:^9.0.7":
+"@graphql-tools/merge@npm:^9.0.0, @graphql-tools/merge@npm:^9.0.10, @graphql-tools/merge@npm:^9.0.7":
   version: 9.0.10
   resolution: "@graphql-tools/merge@npm:9.0.10"
   dependencies:
@@ -3568,6 +3568,24 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@medusajs/modules-sdk@npm:^1.12.12":
+  version: 1.12.12
+  resolution: "@medusajs/modules-sdk@npm:1.12.12"
+  dependencies:
+    "@graphql-tools/merge": "npm:^9.0.0"
+    "@graphql-tools/schema": "npm:^10.0.0"
+    "@medusajs/orchestration": "npm:^0.5.8"
+    "@medusajs/types": "npm:^1.11.17"
+    "@medusajs/utils": "npm:^1.11.10"
+    awilix: "npm:^8.0.0"
+    graphql: "npm:^16.6.0"
+    knex: "npm:2.4.2"
+    pg: "npm:^8.11.2"
+    resolve-cwd: "npm:^3.0.0"
+  checksum: 10c0/fd0840c1408cfd3632e4c5a95260c607e7a0c9737d1f97c06202bacec4fafd2d0e291466decff177dcf44427ef65318e173547b2058b64974fb896747f7d74f0
+  languageName: node
+  linkType: hard
+
 "@medusajs/modules-sdk@npm:^2.0.4":
   version: 2.0.4
   resolution: "@medusajs/modules-sdk@npm:2.0.4"
@@ -3617,6 +3635,18 @@ __metadata:
     "@mikro-orm/postgresql": 5.9.7
     awilix: ^8.0.1
   checksum: 10c0/9af9b5a56c96b2eeb3d9ace1dcd5069b9feef196a82976271f41b5ab9d2a3c48b620dee500c759dd76ec748f530a943006d101188c76a140ea6d8688420a244c
+  languageName: node
+  linkType: hard
+
+"@medusajs/orchestration@npm:^0.5.8":
+  version: 0.5.8
+  resolution: "@medusajs/orchestration@npm:0.5.8"
+  dependencies:
+    "@medusajs/types": "npm:^1.11.17"
+    "@medusajs/utils": "npm:^1.11.10"
+    awilix: "npm:^8.0.0"
+    graphql: "npm:^16.6.0"
+  checksum: 10c0/d67d9b6206cb1845a59b7b9289736c0e2b36c78f352c157e478527b34fd6337b084100006b5d365ae6101ea5a88f83e05fbb45f2009ace3df280d4a00132e965
   languageName: node
   linkType: hard
 
@@ -3837,6 +3867,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@medusajs/types@npm:^1.11.17":
+  version: 1.11.17
+  resolution: "@medusajs/types@npm:1.11.17"
+  checksum: 10c0/544099b215cd4de87682c2154696ff4849704f74290f15e3e383e6cf503a335767b399b9fe2a381ffa4405fa2ec7ed911a8a5eecff6c7f10d5ef95af802064b6
+  languageName: node
+  linkType: hard
+
 "@medusajs/types@npm:^2.0.0, @medusajs/types@npm:^2.0.4, @medusajs/types@npm:latest":
   version: 2.0.4
   resolution: "@medusajs/types@npm:2.0.4"
@@ -3984,6 +4021,22 @@ __metadata:
     express: ^4.21.0
     pg: ^8.13.0
   checksum: 10c0/60b31ef049985211257d7d23d669fb15ae42c4bc8fa49ab9f595524d39a5b600063ed641b31978350c19fd19184438b0e7d640b1a94811b0b135e1d5ca0df9ee
+  languageName: node
+  linkType: hard
+
+"@medusajs/utils@npm:^1.11.10":
+  version: 1.11.11
+  resolution: "@medusajs/utils@npm:1.11.11"
+  dependencies:
+    "@medusajs/types": "npm:^1.11.17"
+    "@mikro-orm/core": "npm:5.9.7"
+    "@mikro-orm/migrations": "npm:5.9.7"
+    "@mikro-orm/postgresql": "npm:5.9.7"
+    awilix: "npm:^8.0.1"
+    bignumber.js: "npm:^9.1.2"
+    knex: "npm:2.4.2"
+    ulid: "npm:^2.3.0"
+  checksum: 10c0/673f9bd6464c48da6d767c4945e039942707650c3b942491a2f7dfa9387d1bf0a58b2df41f69a2c51cb5e5156fc93acf2a84a5492f646fafc7f4b3d39ec0dcf2
   languageName: node
   linkType: hard
 
@@ -11405,7 +11458,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"awilix@npm:^8.0.1":
+"awilix@npm:^8.0.0, awilix@npm:^8.0.1":
   version: 8.0.1
   resolution: "awilix@npm:8.0.1"
   dependencies:
@@ -11652,7 +11705,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"body-parser@npm:1.20.3":
+"body-parser@npm:1.20.3, body-parser@npm:^1.19.0":
   version: 1.20.3
   resolution: "body-parser@npm:1.20.3"
   dependencies:
@@ -12331,6 +12384,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"commander@npm:^9.1.0":
+  version: 9.5.0
+  resolution: "commander@npm:9.5.0"
+  checksum: 10c0/5f7784fbda2aaec39e89eb46f06a999e00224b3763dc65976e05929ec486e174fe9aac2655f03ba6a5e83875bd173be5283dc19309b7c65954701c02025b3c1d
+  languageName: node
+  linkType: hard
+
 "common-tags@npm:1.8.2":
   version: 1.8.2
   resolution: "common-tags@npm:1.8.2"
@@ -12549,7 +12609,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"cross-fetch@npm:^3.1.5":
+"cross-fetch@npm:^3.1.5, cross-fetch@npm:^3.1.6":
   version: 3.1.8
   resolution: "cross-fetch@npm:3.1.8"
   dependencies:
@@ -14468,7 +14528,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"graphql@npm:^16.9.0":
+"graphql@npm:^16.6.0, graphql@npm:^16.9.0":
   version: 16.9.0
   resolution: "graphql@npm:16.9.0"
   checksum: 10c0/a8850f077ff767377237d1f8b1da2ec70aeb7623cdf1dfc9e1c7ae93accc0c8149c85abe68923be9871a2934b1bce5a2496f846d4d56e1cfb03eaaa7ddba9b6a
@@ -16121,6 +16181,45 @@ __metadata:
   languageName: node
   linkType: hard
 
+"knex@npm:2.4.2":
+  version: 2.4.2
+  resolution: "knex@npm:2.4.2"
+  dependencies:
+    colorette: "npm:2.0.19"
+    commander: "npm:^9.1.0"
+    debug: "npm:4.3.4"
+    escalade: "npm:^3.1.1"
+    esm: "npm:^3.2.25"
+    get-package-type: "npm:^0.1.0"
+    getopts: "npm:2.3.0"
+    interpret: "npm:^2.2.0"
+    lodash: "npm:^4.17.21"
+    pg-connection-string: "npm:2.5.0"
+    rechoir: "npm:^0.8.0"
+    resolve-from: "npm:^5.0.0"
+    tarn: "npm:^3.0.2"
+    tildify: "npm:2.0.0"
+  peerDependenciesMeta:
+    better-sqlite3:
+      optional: true
+    mysql:
+      optional: true
+    mysql2:
+      optional: true
+    pg:
+      optional: true
+    pg-native:
+      optional: true
+    sqlite3:
+      optional: true
+    tedious:
+      optional: true
+  bin:
+    knex: bin/cli.js
+  checksum: 10c0/b6e2582671ac1503edf073e011b1db1b4d5c719a7acad5d8453d70b45b45296c3fba43f91ea3d26956986fb0ec70a7d26b8af4dfcf5ac1507c6674fc2186400b
+  languageName: node
+  linkType: hard
+
 "knex@npm:2.5.1":
   version: 2.5.1
   resolution: "knex@npm:2.5.1"
@@ -16518,6 +16617,21 @@ __metadata:
   languageName: node
   linkType: hard
 
+"medusa-plugin-meilisearch@npm:^2.0.11":
+  version: 2.0.11
+  resolution: "medusa-plugin-meilisearch@npm:2.0.11"
+  dependencies:
+    "@medusajs/modules-sdk": "npm:^1.12.12"
+    "@medusajs/utils": "npm:^1.11.10"
+    body-parser: "npm:^1.19.0"
+    lodash: "npm:^4.17.21"
+    meilisearch: "npm:^0.32.3"
+  peerDependencies:
+    "@medusajs/medusa": ^1.12.0
+  checksum: 10c0/b6bb1072512b4905a13c5d0fd075834c10292c89ee5021e9ee8a2e131d5dab432c074ba46bd37a9a0a4647ca163aa18fd231dbf480e0cc65f17d280f793161ad
+  languageName: node
+  linkType: hard
+
 "medusa@workspace:apps/medusa":
   version: 0.0.0-use.local
   resolution: "medusa@workspace:apps/medusa"
@@ -16544,6 +16658,7 @@ __metadata:
     "@types/react": "npm:^18.3.2"
     awilix: "npm:^8.0.1"
     jest: "npm:^29.7.0"
+    medusa-plugin-meilisearch: "npm:^2.0.11"
     pg: "npm:^8.13.0"
     prop-types: "npm:^15.8.1"
     ts-node: "npm:^10.9.2"
@@ -16557,6 +16672,15 @@ __metadata:
   dependencies:
     cross-fetch: "npm:^3.1.5"
   checksum: 10c0/d622bbed9ce90b3e8e6758d496d43041844dc31cc4cc16436054edb067f2d9cf21f4c885d36d717ca685de2dfc366d13b3c34ca351e686477329c1a1bd532bb5
+  languageName: node
+  linkType: hard
+
+"meilisearch@npm:^0.32.3":
+  version: 0.32.5
+  resolution: "meilisearch@npm:0.32.5"
+  dependencies:
+    cross-fetch: "npm:^3.1.6"
+  checksum: 10c0/bf4ced846a9124802217598b374087b2993125b5c37fa7dd67422e578f63d175e20779f726d8c13759b4b63fdd12550b502c88e4736442e316e1b3ac612e09f8
   languageName: node
   linkType: hard
 
@@ -17590,6 +17714,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"pg-connection-string@npm:2.5.0":
+  version: 2.5.0
+  resolution: "pg-connection-string@npm:2.5.0"
+  checksum: 10c0/4b1650132d8000d68864db774c4a99d98acf1cb90525045402b93d3b5a5f36500e5934c653598256cd86b3a310ba4639fbf1e8e1e04cefa46840838541b7626c
+  languageName: node
+  linkType: hard
+
 "pg-connection-string@npm:2.6.1":
   version: 2.6.1
   resolution: "pg-connection-string@npm:2.6.1"
@@ -17702,7 +17833,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"pg@npm:^8.11.3, pg@npm:^8.13.0, pg@npm:^8.3.0":
+"pg@npm:^8.11.2, pg@npm:^8.11.3, pg@npm:^8.13.0, pg@npm:^8.3.0":
   version: 8.13.1
   resolution: "pg@npm:8.13.1"
   dependencies:
