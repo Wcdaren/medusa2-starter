@@ -104,9 +104,10 @@ export async function middleware(request: NextRequest) {
 
   // check if one of the country codes is in the url
   if (
-    urlHasCountryCode &&
-    (!isOnboarding || onboardingCookie) &&
-    (!cartId || cartIdCookie)
+    request.nextUrl.pathname.startsWith("/studio") ||
+    (urlHasCountryCode &&
+      (!isOnboarding || onboardingCookie) &&
+      (!cartId || cartIdCookie))
   ) {
     return NextResponse.next()
   }

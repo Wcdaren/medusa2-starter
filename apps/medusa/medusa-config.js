@@ -1,9 +1,9 @@
-const { loadEnv, defineConfig, Modules } = require('@medusajs/framework/utils');
+const { loadEnv, defineConfig, Modules } = require('@medusajs/framework/utils')
 
-loadEnv(process.env.NODE_ENV, process.cwd());
+loadEnv(process.env.NODE_ENV, process.cwd())
 
-const REDIS_URL = process.env.REDIS_URL;
-const STRIPE_API_KEY = process.env.STRIPE_API_KEY;
+const REDIS_URL = process.env.REDIS_URL
+const STRIPE_API_KEY = process.env.STRIPE_API_KEY
 
 module.exports = defineConfig({
   projectConfig: {
@@ -56,6 +56,20 @@ module.exports = defineConfig({
         },
       },
     },
+    {
+      resolve: './src/modules/sanity',
+      options: {
+        api_token: process.env.SANITY_API_TOKEN,
+        project_id: process.env.SANITY_PROJECT_ID,
+        api_version: new Date().toISOString().split('T')[0],
+        dataset: 'production',
+        studio_url:
+          process.env.SANITY_STUDIO_URL || 'http://localhost:3000/studio',
+        type_map: {
+          product: 'product',
+        },
+      },
+    },
   ],
   admin: {
     backendUrl: process.env.ADMIN_BACKEND_URL || 'http://localhost:9000',
@@ -65,4 +79,4 @@ module.exports = defineConfig({
       },
     }),
   },
-});
+})

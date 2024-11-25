@@ -1,11 +1,11 @@
-import { Metadata } from "next"
-import { notFound } from "next/navigation"
+import { Metadata } from 'next'
+import { notFound } from 'next/navigation'
 
-import ProductTemplate from "@modules/products/templates"
-import { getRegion, listRegions } from "@lib/data/regions"
-import { getProductByHandle } from "@lib/data/products"
-import { sdk } from "@lib/config"
-
+import ProductTemplate from '@modules/products/templates'
+import { getRegion, listRegions } from '@lib/data/regions'
+import { getProductByHandle } from '@lib/data/products'
+import { sdk } from '@lib/config'
+import { client } from '../../../../../sanity/lib/client'
 type Props = {
   params: { countryCode: string; handle: string }
 }
@@ -13,7 +13,7 @@ type Props = {
 export async function generateStaticParams() {
   try {
     const countryCodes = await listRegions().then((regions) =>
-      regions?.map((r) => r.countries?.map((c) => c.iso_2)).flat()
+      regions?.map((r) => r.countries?.map((c) => c.iso_2)).flat(),
     )
 
     if (!countryCodes) {
@@ -21,8 +21,8 @@ export async function generateStaticParams() {
     }
 
     const { products } = await sdk.store.product.list(
-      { fields: "handle" },
-      { next: { tags: ["products"] } }
+      { fields: 'handle' },
+      { next: { tags: ['products'] } },
     )
 
     return countryCodes
@@ -30,15 +30,15 @@ export async function generateStaticParams() {
         products.map((product) => ({
           countryCode,
           handle: product.handle,
-        }))
+        })),
       )
       .flat()
       .filter((param) => param.handle)
   } catch (error) {
     console.error(
       `Failed to generate static paths for product pages: ${
-        error instanceof Error ? error.message : "Unknown error"
-      }.`
+        error instanceof Error ? error.message : 'Unknown error'
+      }.`,
     )
     return []
   }
@@ -81,11 +81,15 @@ export default async function ProductPage({ params }: Props) {
     notFound()
   }
 
+  // alternatively, you can filter the content by the language
+  const sanity = (await client.getDocument(pricedProduct.id))?.specs[0]
+
   return (
     <ProductTemplate
       product={pricedProduct}
       region={region}
       countryCode={params.countryCode}
+      sanity={sanity}
     />
   )
 }
