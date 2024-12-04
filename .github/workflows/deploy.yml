@@ -1,0 +1,77 @@
+name: Deploy
+on:
+  push:
+    branches:
+      - main
+
+env:
+  DEPLOY_ENV: ${{ github.ref == 'refs/heads/main' && 'production' || 'local' }}
+
+jobs:
+  setup:
+    timeout-minutes: 15
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - uses: ./.github/actions/monorepo-install
+      - uses: dtinth/setup-github-actions-caching-for-turbo@v1
+      - run: yarn build
+# TODO 这里会一次性把全部应用都部署上去,理论上不应该这样,应该根据是否有变更来决定部署哪个应用
+  deploy:
+    needs: setup
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        app: [storefront, medusa]
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Load deploy config
+        id: config
+        uses: actions/github-script@v6
+        with:
+          script: |
+            const yaml = require('js-yaml');
+            const fs = require('fs');
+            const config = yaml.load(fs.readFileSync('deploy-config.yml', 'utf8'));
+            const env = process.env.DEPLOY_ENV;
+            const appConfig = config.environments[env];
+            
+            const docker = {
+              registry: appConfig.docker.registry,
+              repository: `${appConfig.docker.registry}/${appConfig.docker.repositories.${{ matrix.app }}}`,
+              tag: process.env.GITHUB_SHA || 'latest'
+            };
+            
+            const k8s = {
+              namespace: appConfig.kubernetes.namespace,
+              context: appConfig.kubernetes.context
+            };
+            
+            return { docker, k8s };
+      - name: Build and push Docker image
+        uses: ./.github/actions/docker
+        with:
+          app: ${{ matrix.app }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          DOCKER_REPOSITORY: ${{ steps.config.outputs.docker.repository }}
+          DOCKER_TAG: ${{ steps.config.outputs.docker.tag }}
+          DOCKER_REGISTRY: ${{ steps.config.outputs.docker.registry }}
+
+      - name: Deploy to Kubernetes
+        uses: WyriHaximus/github-action-helm3@v2
+        env:
+          HELM_NAME: ${{ matrix.app }}
+          KUBE_NAMESPACE: ${{ steps.config.outputs.k8s.namespace }}
+          KUBE_CONTEXT: ${{ steps.config.outputs.k8s.context }}
+        with:
+          exec: |
+            helm upgrade ${HELM_NAME} --reuse-values \
+            --set image.tag=${{ steps.config.outputs.docker.tag }} \
+            --set image.repository=${{ steps.config.outputs.docker.repository }} \
+            ./helm-charts/${{ matrix.app }}/ -n ${KUBE_NAMESPACE} \
+            --kube-context ${KUBE_CONTEXT}
+          kubeconfig: ${{ secrets.EKS_KUBECONFIG }}

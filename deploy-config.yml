@@ -1,0 +1,20 @@
+environments:
+  local:
+    docker:
+      registry: localhost:5000
+      repositories:
+        storefront: medusa2-starter/storefront
+        medusa: medusa2-starter/medusa
+    kubernetes:
+      namespace: local
+      context: orbstack
+
+  production:
+    docker:
+      registry: ghcr.io/wcdaren
+      repositories:
+        storefront: medusa2-starter/storefront
+        medusa: medusa2-starter/medusa
+    kubernetes:
+      namespace: barrio
+      context: eks
