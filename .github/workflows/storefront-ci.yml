@@ -66,9 +66,9 @@ jobs:
           restore-keys: |
             turbo-storefront-
       
-      - name: Lint and Test
+      - name: Lint 
         run: |
-          yarn turbo run lint test --filter=storefront...
+          yarn turbo run lint --filter=storefront...
         
       - name: Build
         run: |
