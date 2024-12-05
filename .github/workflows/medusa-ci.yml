@@ -38,7 +38,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     permissions:
-      contents: read
+      contents: write
       packages: write
 
     steps:
@@ -104,6 +104,8 @@ jobs:
       - name: Update GitOps Config
         if: github.ref == 'refs/heads/main'
         uses: ./.github/actions/update-gitops-config
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # 确保这个环境变量可用
         with:
           app: medusa
           tag: ${{ github.sha }}
