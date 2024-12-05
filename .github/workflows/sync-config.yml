@@ -25,7 +25,9 @@ jobs:
       - name: Validate Helm Charts
         run: |
           helm lint helm-charts/medusa/
+          helm lint helm-charts/storefront/
           helm template helm-charts/medusa/ | kubectl apply --dry-run=client -f -
+          helm template helm-charts/storefront/ | kubectl apply --dry-run=client -f -
 
       - name: Validate K8s Manifests
         run: |
