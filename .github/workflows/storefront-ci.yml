@@ -1,6 +1,22 @@
 name: storefront CI
 
 on:
+  workflow_dispatch:  # Add manual trigger
+    inputs:
+      environment:
+        description: 'Environment to deploy to'
+        type: choice
+        required: true
+        default: 'development'
+        options:
+          - development
+          - staging
+          - production
+      debug:
+        description: 'Enable debug logging'
+        type: boolean
+        required: false
+        default: false
   push:
     paths:
       - 'apps/storefront/**'
