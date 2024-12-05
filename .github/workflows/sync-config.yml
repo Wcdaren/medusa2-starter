@@ -1,0 +1,43 @@
+name: Sync Config
+
+on:
+  push:
+    paths:
+      - 'helm-charts/**'
+      - 'k8s/**'
+    branches:
+      - main
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      
+      - name: Install Helm
+        uses: azure/setup-helm@v3
+        with:
+          version: 'latest'
+
+      - name: Setup kubectl
+        uses: azure/setup-kubectl@v3
+        
+      - name: Validate Helm Charts
+        run: |
+          helm lint helm-charts/medusa/
+          helm template helm-charts/medusa/ | kubectl apply --dry-run=client -f -
+
+      - name: Validate K8s Manifests
+        run: |
+          kubectl apply -f k8s/ --dry-run=client
+
+      - name: Sync to GitOps Repo
+        uses: cpina/github-action-push-to-another-repository@main
+        env:
+          API_TOKEN_GITHUB: ${{ secrets.GITOPS_PAT }}
+        with:
+          source-directory: 'helm-charts'
+          destination-repository-name: 'medusa2-starter-gitops'
+          destination-github-username: ${{ github.repository_owner }}
+          user-email: ${{ github.actor }}@users.noreply.github.com
+          commit-message: 'chore: sync helm charts and k8s configs [skip ci]'

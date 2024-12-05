@@ -1,0 +1,97 @@
+name: Frontend CI
+
+on:
+  push:
+    paths:
+      - 'apps/frontend/**'
+      - 'packages/**'
+      - '.github/workflows/frontend-ci.yml'
+    branches: 
+      - 'main'
+      - 'feature/**'
+  pull_request:
+    paths:
+      - 'apps/frontend/**'
+      - 'packages/**'
+
+env:
+  REGISTRY: ghcr.io
+  IMAGE_NAME: ${{ github.repository }}/frontend
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+      
+      - name: Setup Dependencies
+        uses: ./.github/actions/monorepo-install
+        with:
+          cache-node-modules: 'true'
+          cache-install-state: 'true'
+          enable-corepack: 'true'
+      
+      - name: Setup Turbo Cache
+        uses: actions/cache@v4
+        with:
+          path: node_modules/.cache/turbo
+          key: turbo-frontend-${{ github.sha }}
+          restore-keys: |
+            turbo-frontend-
+      
+      - name: Lint and Test
+        run: |
+          yarn turbo run lint test --filter=frontend...
+        
+      - name: Build
+        run: |
+          yarn turbo run build --filter=frontend...
+        
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v2
+      
+      - name: Login to Container Registry
+        uses: docker/login-action@v2
+        with:
+          registry: ${{ env.REGISTRY }}
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+      
+      - name: Extract metadata
+        id: meta
+        uses: docker/metadata-action@v4
+        with:
+          images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
+          tags: |
+            type=sha,prefix=
+            type=ref,event=branch
+            type=ref,event=pr
+      
+      - name: Build and Push Image
+        uses: docker/build-push-action@v4
+        with:
+          context: .
+          file: ./apps/frontend/Dockerfile
+          push: ${{ github.event_name != 'pull_request' }}
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+      
+      - name: Update GitOps Config
+        if: github.ref == 'refs/heads/main'
+        uses: ./.github/actions/update-gitops-config
+        with:
+          app: frontend
+          tag: ${{ github.sha }}

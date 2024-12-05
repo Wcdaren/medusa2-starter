@@ -1,0 +1,38 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      
+      # 使用现有的 monorepo-install action
+      - name: Setup Dependencies
+        uses: ./.github/actions/monorepo-install
+        with:
+          cache-node-modules: 'true'
+          cache-install-state: 'true'
+          enable-corepack: 'true'
+      
+      - name: Create Release
+        id: create_release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ github.ref }}
+          release_name: Release ${{ github.ref }}
+          draft: false
+          prerelease: false
+      
+      # 更新生产环境配置
+      - name: Update Production Config
+        uses: ./.github/actions/update-gitops-config
+        with:
+          environment: production
+          tag: ${{ github.ref }}
