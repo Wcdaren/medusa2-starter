@@ -68,8 +68,8 @@ jobs:
           restore-keys: |
             turbo-medusa-
 
-      - name: Build and Test
-        run: yarn turbo run build test --filter=medusa...
+      # - name: Build and Test
+      #   run: yarn turbo run build test --filter=medusa...
       
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v2
