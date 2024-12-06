@@ -1,0 +1,10 @@
+jobs:
+  seed:
+    enabled: false
+
+image:
+  repository: myapp-medusa
+  tag: latest
+
+ingress:
+  enabled: false # 本地开发通常不需要 ingress
