@@ -21,6 +21,9 @@ RUN yarn install
 
 COPY --from=builder /app/out/full/ .
 
+# 添加构建时的环境变量
+ENV NEXT_PUBLIC_MEDUSA_BACKEND_URL=http://host.docker.internal:9000
+
 RUN yarn turbo build --filter=storefront && \
     yarn workspaces focus --all --production && \
     rm -rf node_modules/.cache .yarn/cache
