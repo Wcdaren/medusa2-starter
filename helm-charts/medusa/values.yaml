@@ -19,7 +19,15 @@ imagePullSecrets: []
 nameOverride: ''
 fullnameOverride: ''
 
-env: []
+env:
+  - name: REDIS_URL
+    value: 'redis://host.docker.internal:6379'
+  - name: DB_NAME
+    value: 'medusa2'
+  - name: DATABASE_URL
+    value: 'postgresql://postgres:postgres@host.docker.internal:5432/medusa2'
+  - name: POSTGRES_URL
+    value: 'postgresql://postgres:postgres@host.docker.internal:5432/medusa2'
 
 # This section builds out the service account more information can be found here: https://kubernetes.io/docs/concepts/security/service-accounts/
 serviceAccount:
@@ -62,14 +70,13 @@ service:
 
 # This block is for setting up the ingress for more information can be found here: https://kubernetes.io/docs/concepts/services-networking/ingress/
 ingress:
-  enabled: false
-  className: ''
+  enabled: true
+  className: 'nginx'
   annotations:
-    {}
-    # kubernetes.io/ingress.class: nginx
-    # kubernetes.io/tls-acme: "true"
+    kubernetes.io/ingress.class: nginx
+    # kubernetes.io/tls-acme: 'true'
   hosts:
-    - host: chart-example.local
+    - host: api.k8s.orb.local
       paths:
         - path: /
           pathType: ImplementationSpecific
@@ -77,6 +84,27 @@ ingress:
   #  - secretName: chart-example-tls
   #    hosts:
   #      - chart-example.local
+
+# Adding jobs configuration
+jobs:
+  seed:
+    enabled: false # Set to true if you want to enable the seed job
+    image:
+      repository: your-seed-image
+      tag: latest
+      pullPolicy: IfNotPresent
+    backoffLimit: 4
+    activeDeadlineSeconds: 600
+    restartPolicy: OnFailure
+  migrate:
+    enabled: false # Set to true if you want to enable the migration job
+    image:
+      repository: your-migrate-image
+      tag: latest
+      pullPolicy: IfNotPresent
+    backoffLimit: 4
+    activeDeadlineSeconds: 600
+    restartPolicy: OnFailure
 
 resources:
   {}
@@ -92,14 +120,14 @@ resources:
   #   memory: 128Mi
 
 # This is to setup the liveness and readiness probes more information can be found here: https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/
-livenessProbe:
-  httpGet:
-    path: /
-    port: http
-readinessProbe:
-  httpGet:
-    path: /
-    port: http
+# livenessProbe:
+#   httpGet:
+#     path: /
+#     port: http
+# readinessProbe:
+#   httpGet:
+#     path: /
+#     port: http
 
 # This section is for setting up autoscaling more information can be found here: https://kubernetes.io/docs/concepts/workloads/autoscaling/
 autoscaling:

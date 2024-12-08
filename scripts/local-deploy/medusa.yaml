@@ -1,0 +1,67 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: medusa-api
+  namespace: myapp
+spec:
+  type: ClusterIP
+  ports:
+    - port: 80
+      targetPort: 80
+  selector:
+    app: medusa-api
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: medusa-api
+  namespace: myapp
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: medusa-api
+  template:
+    metadata:
+      labels:
+        app: medusa-api
+    spec:
+      containers:
+        - name: medusa-api
+          image: myapp-medusa:latest
+          imagePullPolicy: Never # 因为是本地镜像
+          ports:
+            - containerPort: 80
+          env:
+            - name: REDIS_URL
+              value: 'redis://host.docker.internal:6379'
+            - name: DB_NAME
+              value: 'medusa2'
+            - name: DATABASE_URL
+              value: 'postgresql://postgres:postgres@host.docker.internal:5432/medusa2'
+            - name: POSTGRES_URL
+              value: 'postgresql://postgres:postgres@host.docker.internal:5432/medusa2'
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: medusa-api-ingress
+  namespace: myapp
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+    nginx.ingress.kubernetes.io/ssl-redirect: 'false' # 如果不需要 SSL
+    kubernetes.io/ingress.class: nginx
+spec:
+  ingressClassName: nginx
+  rules:
+    - host: api.k8s.orb.local # 你可以修改这个域名
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: medusa-api
+                port:
+                  number: 80

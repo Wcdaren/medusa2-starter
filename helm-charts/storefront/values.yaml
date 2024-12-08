@@ -1,12 +1,12 @@
 replicaCount: 1
 
-# env:
-#   - name: 'ENVIRONMENT'
-#     value: 'staging'
-#   - name: 'INTERNAL_MEDUSA_API_URL'
-#     value: 'medusa-api'
-#   - name: 'PORT'
-#     value: '80'
+env:
+  - name: 'NEXT_PUBLIC_DEFAULT_REGION'
+    value: 'ca'
+  # - name: 'INTERNAL_MEDUSA_API_URL'
+  #   value: 'medusa-api'
+  # - name: 'PORT'
+  #   value: '80'
 
 image:
   repository: myapp-storefront
