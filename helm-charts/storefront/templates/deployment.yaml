@@ -42,14 +42,14 @@ spec:
             - name: http
               containerPort: 80
               protocol: TCP
-          livenessProbe:
-            httpGet:
-              path: /api/health/live
-              port: http
-          readinessProbe:
-            httpGet:
-              path: /api/health/live
-              port: http
+          # livenessProbe:
+          #   httpGet:
+          #     path: /api/health/live
+          #     port: http
+          # readinessProbe:
+          #   httpGet:
+          #     path: /api/health/live
+          #     port: http
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
           volumeMounts:
