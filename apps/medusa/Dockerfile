@@ -34,4 +34,5 @@ WORKDIR /app/apps/medusa
 
 ENV PORT=80
 
-CMD ["yarn", "start:prod"]
+CMD ["sh", "-c", "yarn migrate:prod && yarn start:prod"]
+
