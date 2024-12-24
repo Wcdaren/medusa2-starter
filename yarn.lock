@@ -3134,15 +3134,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@graphql-tools/merge@npm:^9.0.14, @graphql-tools/merge@npm:^9.0.7":
-  version: 9.0.14
-  resolution: "@graphql-tools/merge@npm:9.0.14"
+"@graphql-tools/merge@npm:^9.0.15, @graphql-tools/merge@npm:^9.0.7":
+  version: 9.0.15
+  resolution: "@graphql-tools/merge@npm:9.0.15"
   dependencies:
-    "@graphql-tools/utils": "npm:^10.6.4"
+    "@graphql-tools/utils": "npm:^10.7.0"
     tslib: "npm:^2.4.0"
   peerDependencies:
     graphql: ^14.0.0 || ^15.0.0 || ^16.0.0 || ^17.0.0
-  checksum: 10c0/e0fbaece89151a91dee75428d2f5561a233e961761575a2f1765da43043e5f2cc68890aa41af44788e5a945afd26aff18d0554286a3c6b68ac2721b2821f8132
+  checksum: 10c0/f40e4b32dc296f7d258e2cf64c3dbca4761a8665d2117d19c2765921e329fe35d4f006acf661d4fc5d5c951e773ad44ad803ee2acd2d14d4f3f542b9478835b8
   languageName: node
   linkType: hard
 
@@ -3158,35 +3158,35 @@ __metadata:
   linkType: hard
 
 "@graphql-tools/relay-operation-optimizer@npm:^7.0.0":
-  version: 7.0.8
-  resolution: "@graphql-tools/relay-operation-optimizer@npm:7.0.8"
+  version: 7.0.9
+  resolution: "@graphql-tools/relay-operation-optimizer@npm:7.0.9"
   dependencies:
     "@ardatan/relay-compiler": "npm:12.0.0"
-    "@graphql-tools/utils": "npm:^10.6.4"
+    "@graphql-tools/utils": "npm:^10.7.0"
     tslib: "npm:^2.4.0"
   peerDependencies:
     graphql: ^14.0.0 || ^15.0.0 || ^16.0.0 || ^17.0.0
-  checksum: 10c0/7f36bcf279573f2174eeee0ef0725fb98a2e474da94af7ff776f6c6b57bb384b24981182beaeeb4f253f64aa18f97629195299805af459c593e3eeb2f2c4fb5f
+  checksum: 10c0/8d0932be1b7bcf72738597ded2b79efd2ac0339ae36c2a4932e9b2d41ebd6764fa261a32317ee5f69f8d0c66c224b1658307ec0e45fa27f756ab2cc0731f6ad0
   languageName: node
   linkType: hard
 
 "@graphql-tools/schema@npm:^10.0.0, @graphql-tools/schema@npm:^10.0.6":
-  version: 10.0.13
-  resolution: "@graphql-tools/schema@npm:10.0.13"
+  version: 10.0.14
+  resolution: "@graphql-tools/schema@npm:10.0.14"
   dependencies:
-    "@graphql-tools/merge": "npm:^9.0.14"
-    "@graphql-tools/utils": "npm:^10.6.4"
+    "@graphql-tools/merge": "npm:^9.0.15"
+    "@graphql-tools/utils": "npm:^10.7.0"
     tslib: "npm:^2.4.0"
     value-or-promise: "npm:^1.0.12"
   peerDependencies:
     graphql: ^14.0.0 || ^15.0.0 || ^16.0.0 || ^17.0.0
-  checksum: 10c0/20911c30ab7f68e81982f094779588e118d8f3ada06128fe9f1bc8d4a5246f9e8d70a339d8c26d3e40083bba797e4fefba88447104b4c8dfc8064dcf75b2de99
+  checksum: 10c0/c8779781da9d43ad97dd6fc77c49cd093d88df236a097c6739b65b5e908a3f7df30f79a15f2616a250512f14ccf67ed2e3d58ddd8ee38ec829f54edb7c0f9d11
   languageName: node
   linkType: hard
 
-"@graphql-tools/utils@npm:^10.0.0, @graphql-tools/utils@npm:^10.6.4":
-  version: 10.6.4
-  resolution: "@graphql-tools/utils@npm:10.6.4"
+"@graphql-tools/utils@npm:^10.0.0, @graphql-tools/utils@npm:^10.7.0":
+  version: 10.7.0
+  resolution: "@graphql-tools/utils@npm:10.7.0"
   dependencies:
     "@graphql-typed-document-node/core": "npm:^3.1.1"
     cross-inspect: "npm:1.0.1"
@@ -3194,7 +3194,7 @@ __metadata:
     tslib: "npm:^2.4.0"
   peerDependencies:
     graphql: ^14.0.0 || ^15.0.0 || ^16.0.0 || ^17.0.0
-  checksum: 10c0/f415f65f5e851edc8f1fb4e8d3c62b1858b7e0893fd45dac3f6a3d41ead655a8ffce224b042f1ef559b9b278628e3e76ba495036ca2e434f8244418cc9be3160
+  checksum: 10c0/f92d437bb0ad32429a846fc60d81b2ab53c1efd5a00768641c646fb7bc62fea40577de2ef036e3e071a5dc0db7280333d8745340e4581b5885fc11a98ee57a30
   languageName: node
   linkType: hard
 
@@ -5744,7 +5744,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@payloadcms/next@npm:^3.11.0":
+"@payloadcms/next@npm:3.11.0, @payloadcms/next@npm:^3.11.0":
   version: 3.11.0
   resolution: "@payloadcms/next@npm:3.11.0"
   dependencies:
@@ -5786,6 +5786,52 @@ __metadata:
   peerDependencies:
     payload: 3.11.0
   checksum: 10c0/5610e839b6d1aa5b44a5b68cce02c7d5d62f414af2ead51ff47d2ceebc41a3857a52b4b3257d16f5afa1519b236e0e3e632fd577a50e366a2df558d53fb09da4
+  languageName: node
+  linkType: hard
+
+"@payloadcms/plugin-form-builder@npm:latest":
+  version: 3.11.0
+  resolution: "@payloadcms/plugin-form-builder@npm:3.11.0"
+  dependencies:
+    "@payloadcms/ui": "npm:3.11.0"
+    escape-html: "npm:^1.0.3"
+  peerDependencies:
+    payload: 3.11.0
+    react: ^19.0.0 || ^19.0.0-rc-65a56d0e-20241020
+    react-dom: ^19.0.0 || ^19.0.0-rc-65a56d0e-20241020
+  checksum: 10c0/704f4a2221a33436c6107f7eef3be88b2bc99fca11afa2807fe97183ffafd9fb8cdfa6e2cd78d9067d85bfc990301e9c4f70777455118652929b1afc20501df3
+  languageName: node
+  linkType: hard
+
+"@payloadcms/plugin-nested-docs@npm:latest":
+  version: 3.11.0
+  resolution: "@payloadcms/plugin-nested-docs@npm:3.11.0"
+  peerDependencies:
+    payload: 3.11.0
+  checksum: 10c0/1c1dd422fe534ee91af0de2685f105ea2d8b4d0c96784dc13fd98d80587598cd9b2df1e4897e7da4cf1529702273de3e9120fedb50c606b02f82a49422c0fbdf
+  languageName: node
+  linkType: hard
+
+"@payloadcms/plugin-redirects@npm:latest":
+  version: 3.11.0
+  resolution: "@payloadcms/plugin-redirects@npm:3.11.0"
+  peerDependencies:
+    payload: 3.11.0
+  checksum: 10c0/1706e3cce25d45f3ef749c20b90b5fbe27a19f841c8a2f0c4c58d86b7e75e6613f4e4efbdc2cc94e1f7c13ea08a25215fe42d35dba5c2fa5acb4cbdace057654
+  languageName: node
+  linkType: hard
+
+"@payloadcms/plugin-search@npm:latest":
+  version: 3.11.0
+  resolution: "@payloadcms/plugin-search@npm:3.11.0"
+  dependencies:
+    "@payloadcms/next": "npm:3.11.0"
+    "@payloadcms/ui": "npm:3.11.0"
+  peerDependencies:
+    payload: 3.11.0
+    react: ^19.0.0 || ^19.0.0-rc-65a56d0e-20241020
+    react-dom: ^19.0.0 || ^19.0.0-rc-65a56d0e-20241020
+  checksum: 10c0/07371bea609921847bba5385179b2ffff5ad4f39042bd3818710718fdf9f92ff394fb6c1885ea5f23599f4563c67066157aec922599dadc44e86d819338eb754
   languageName: node
   linkType: hard
 
@@ -10709,13 +10755,13 @@ __metadata:
   linkType: hard
 
 "@tanstack/react-query@npm:^5.28.14, @tanstack/react-query@npm:^5.61.3":
-  version: 5.62.9
-  resolution: "@tanstack/react-query@npm:5.62.9"
+  version: 5.62.10
+  resolution: "@tanstack/react-query@npm:5.62.10"
   dependencies:
     "@tanstack/query-core": "npm:5.62.9"
   peerDependencies:
     react: ^18 || ^19
-  checksum: 10c0/f74faf0e91037e393bf556b6b011daf9ae6e8a33c0934d0ce92779d3cadc5e84fd2efa2610b225b3d02ba99237ebcf5fea113ae13d1d8dfa8314df01bf44e26c
+  checksum: 10c0/df6dab08dcbec5d7458855107d81e9a4cb4fef9f2302341168ec2de42fa2935f523b4086b77ab626aa7baf468cb4cd050ab6043fafae794544273d1e7f5cead9
   languageName: node
   linkType: hard
 
@@ -14775,7 +14821,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"escape-html@npm:1.0.3, escape-html@npm:~1.0.3":
+"escape-html@npm:1.0.3, escape-html@npm:^1.0.3, escape-html@npm:~1.0.3":
   version: 1.0.3
   resolution: "escape-html@npm:1.0.3"
   checksum: 10c0/524c739d776b36c3d29fa08a22e03e8824e3b2fd57500e5e44ecf3cc4707c34c60f9ca0781c0e33d191f2991161504c295e98f68c78fe7baa6e57081ec6ac0a3
@@ -18409,6 +18455,10 @@ __metadata:
     "@payloadcms/db-postgres": "npm:^3.11.0"
     "@payloadcms/next": "npm:^3.11.0"
     "@payloadcms/payload-cloud": "npm:^3.11.0"
+    "@payloadcms/plugin-form-builder": "npm:latest"
+    "@payloadcms/plugin-nested-docs": "npm:latest"
+    "@payloadcms/plugin-redirects": "npm:latest"
+    "@payloadcms/plugin-search": "npm:latest"
     "@payloadcms/plugin-seo": "npm:latest"
     "@payloadcms/richtext-lexical": "npm:^3.11.0"
     "@radix-ui/react-accordion": "npm:^1.2.1"
@@ -18429,7 +18479,6 @@ __metadata:
     next: "npm:15.0.3"
     payload: "npm:^3.11.0"
     postcss: "npm:^8.4.8"
-    prettier: "npm:^2.8.8"
     qs: "npm:^6.12.1"
     react: "npm:19.0.0-rc-66855b96-20241106"
     react-country-flag: "npm:^3.1.0"
@@ -20357,15 +20406,6 @@ __metadata:
   version: 1.2.1
   resolution: "prelude-ls@npm:1.2.1"
   checksum: 10c0/b00d617431e7886c520a6f498a2e14c75ec58f6d93ba48c3b639cf241b54232d90daa05d83a9e9b9fef6baa63cb7e1e4602c2372fea5bc169668401eb127d0cd
-  languageName: node
-  linkType: hard
-
-"prettier@npm:^2.8.8":
-  version: 2.8.8
-  resolution: "prettier@npm:2.8.8"
-  bin:
-    prettier: bin-prettier.js
-  checksum: 10c0/463ea8f9a0946cd5b828d8cf27bd8b567345cf02f56562d5ecde198b91f47a76b7ac9eae0facd247ace70e927143af6135e8cf411986b8cb8478784a4d6d724a
   languageName: node
   linkType: hard
 

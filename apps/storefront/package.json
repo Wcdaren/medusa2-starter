@@ -22,6 +22,10 @@
     "@payloadcms/db-postgres": "^3.11.0",
     "@payloadcms/next": "^3.11.0",
     "@payloadcms/payload-cloud": "^3.11.0",
+    "@payloadcms/plugin-form-builder": "latest",
+    "@payloadcms/plugin-nested-docs": "latest",
+    "@payloadcms/plugin-redirects": "latest",
+    "@payloadcms/plugin-search": "latest",
     "@payloadcms/plugin-seo": "latest",
     "@payloadcms/richtext-lexical": "^3.11.0",
     "@radix-ui/react-accordion": "^1.2.1",
@@ -55,7 +59,6 @@
     "eslint": "8.10.0",
     "eslint-config-next": "15.0.3",
     "postcss": "^8.4.8",
-    "prettier": "^2.8.8",
     "tailwindcss": "^3.0.23",
     "typescript": "^5.3.2"
   },
