@@ -11,7 +11,9 @@ import { Users } from "@modules/payload/collections/Users"
 import { Media } from "@modules/payload/collections/Media"
 import { Footer } from "@modules/payload/Footer/config"
 import { defaultLexical } from "@modules/payload/fields/defaultLexical"
-
+import { Pages } from "@modules/payload/collections/Pages"
+import { Posts } from "@modules/payload/collections/Posts"
+import { Categories } from "modules/payload/collections/Categories"
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
 
@@ -22,7 +24,7 @@ export default buildConfig({
       baseDir: path.resolve(dirname),
     },
   },
-  collections: [Users, Media],
+  collections: [Users, Media, Pages, Posts, Categories],
   editor: lexicalEditor(),
   // This config helps us configure global or default features that the other editors can inherit
   // editor: defaultLexical,

@@ -5789,6 +5789,20 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@payloadcms/plugin-seo@npm:latest":
+  version: 3.11.0
+  resolution: "@payloadcms/plugin-seo@npm:3.11.0"
+  dependencies:
+    "@payloadcms/translations": "npm:3.11.0"
+    "@payloadcms/ui": "npm:3.11.0"
+  peerDependencies:
+    payload: 3.11.0
+    react: ^19.0.0 || ^19.0.0-rc-65a56d0e-20241020
+    react-dom: ^19.0.0 || ^19.0.0-rc-65a56d0e-20241020
+  checksum: 10c0/7b3e54d21f8a64b0c9c70e39f7319043a84a87c70b8734f8da4ac506903f2a079a9ccb762b389de76037406cfcc2066d009be8422f634d1350f8691429511274
+  languageName: node
+  linkType: hard
+
 "@payloadcms/richtext-lexical@npm:^3.11.0":
   version: 3.11.0
   resolution: "@payloadcms/richtext-lexical@npm:3.11.0"
@@ -18395,6 +18409,7 @@ __metadata:
     "@payloadcms/db-postgres": "npm:^3.11.0"
     "@payloadcms/next": "npm:^3.11.0"
     "@payloadcms/payload-cloud": "npm:^3.11.0"
+    "@payloadcms/plugin-seo": "npm:latest"
     "@payloadcms/richtext-lexical": "npm:^3.11.0"
     "@radix-ui/react-accordion": "npm:^1.2.1"
     "@stripe/react-stripe-js": "npm:^1.7.2"

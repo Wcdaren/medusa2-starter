@@ -9,16 +9,16 @@ export const Footer: GlobalConfig = {
     read: () => true,
   },
   fields: [
-    // {
-    //   name: "navItems",
-    //   type: "array",
-    //   fields: [
-    //     link({
-    //       appearances: false,
-    //     }),
-    //   ],
-    //   maxRows: 6,
-    // },
+    {
+      name: "navItems",
+      type: "array",
+      fields: [
+        link({
+          appearances: false,
+        }),
+      ],
+      maxRows: 6,
+    },
   ],
   hooks: {
     afterChange: [revalidateFooter],
