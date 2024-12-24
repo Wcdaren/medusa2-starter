@@ -104,6 +104,17 @@ async function getCountryCode(
  * Middleware to handle region selection and onboarding status.
  */
 export async function middleware(request: NextRequest) {
+  const bypassPaths = new Set(["/admin", "/my-route"])
+
+  // Allow paths in bypassPaths to bypass country code check
+  if (
+    Array.from(bypassPaths).some((path) =>
+      request.nextUrl.pathname.startsWith(path)
+    )
+  ) {
+    return NextResponse.next()
+  }
+
   let redirectUrl = request.nextUrl.href
 
   let response = NextResponse.redirect(redirectUrl, 307)

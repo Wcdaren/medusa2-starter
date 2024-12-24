@@ -1,6 +1,7 @@
-const checkEnvVariables = require("./check-env-variables")
+import { withPayload } from "@payloadcms/next/withPayload"
+// import { checkEnvVariables } from "./check-env-variables.mjs"
 
-checkEnvVariables()
+// checkEnvVariables()
 
 /**
  * @type {import('next').NextConfig}
@@ -44,4 +45,4 @@ const nextConfig = {
   },
 }
 
-module.exports = nextConfig
+export default withPayload(nextConfig)

@@ -11,11 +11,15 @@
     "format": "turbo run format",
     "clean": "find . -name \"node_modules\" -type d -prune -exec rm -rf '{}'"
   },
+  "dependencies": {
+    "pg": "^8.13.0"
+  },
   "devDependencies": {
     "@biomejs/biome": "1.9.3",
     "prettier": "^3.2.5",
     "turbo": "^2.1.2",
-    "typescript": "^5.6.2"
+    "typescript": "^5.6.2",
+    "@types/pg": "^8.13.0"
   },
   "engines": {
     "node": ">=20"
