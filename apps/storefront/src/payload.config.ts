@@ -7,8 +7,10 @@ import { buildConfig } from "payload"
 import { fileURLToPath } from "url"
 import sharp from "sharp"
 
-import { Users } from "./collections/Users"
-import { Media } from "./collections/Media"
+import { Users } from "@modules/payload/collections/Users"
+import { Media } from "@modules/payload/collections/Media"
+import { Footer } from "@modules/payload/Footer/config"
+import { defaultLexical } from "@modules/payload/fields/defaultLexical"
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
@@ -22,9 +24,11 @@ export default buildConfig({
   },
   collections: [Users, Media],
   editor: lexicalEditor(),
+  // This config helps us configure global or default features that the other editors can inherit
+  // editor: defaultLexical,
   secret: process.env.PAYLOAD_SECRET || "",
   typescript: {
-    outputFile: path.resolve(dirname, "payload-types.ts"),
+    outputFile: path.resolve(dirname, "types/payload-types.ts"),
   },
   // database-adapter-config-start
   db: postgresAdapter({
@@ -33,9 +37,11 @@ export default buildConfig({
     },
   }),
   // database-adapter-config-end
+  // This config helps us configure global or default features that the other editors can inherit
   sharp,
   plugins: [
     payloadCloudPlugin(),
     // storage-adapter-placeholder
   ],
+  globals: [Footer],
 })
