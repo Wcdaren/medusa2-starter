@@ -15,6 +15,7 @@ import { Categories } from "modules/payload/collections/Categories"
 import { plugins } from "@modules/payload/plugins"
 import { en } from "@payloadcms/translations/languages/en"
 import { zh } from "@payloadcms/translations/languages/zh"
+import { getServerSideURL } from "@lib/util/getURL"
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
@@ -52,10 +53,7 @@ export default buildConfig({
   editor: lexicalEditor(),
   // This config helps us configure global or default features that the other editors can inherit
   // editor: defaultLexical,
-  secret: process.env.PAYLOAD_SECRET || "",
-  typescript: {
-    outputFile: path.resolve(dirname, "types/payload-types.ts"),
-  },
+
   // database-adapter-config-start
   db: postgresAdapter({
     pool: {
@@ -64,11 +62,10 @@ export default buildConfig({
   }),
   // database-adapter-config-end
   // This config helps us configure global or default features that the other editors can inherit
-  sharp,
 
-  i18n: {
-    supportedLanguages: { en, zh },
-  },
+  // i18n: {
+  //   supportedLanguages: { en, zh },
+  // },
 
   // FIXME 现在如果开启的话有问题
   // localization: {
@@ -91,11 +88,18 @@ export default buildConfig({
   //   defaultLocale: "en", // required
   //   fallback: true, // defaults to true
   // },
+  cors: [getServerSideURL()].filter(Boolean),
+
   plugins: [
     // payloadCloudPlugin(),
     ...plugins,
     // storage-adapter-placeholder
   ],
   globals: [Footer],
-  debug: true,
+  secret: process.env.PAYLOAD_SECRET || "",
+
+  sharp,
+  typescript: {
+    outputFile: path.resolve(dirname, "types/payload-types.ts"),
+  },
 })

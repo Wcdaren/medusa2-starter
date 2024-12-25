@@ -104,7 +104,7 @@ async function getCountryCode(
  * Middleware to handle region selection and onboarding status.
  */
 export async function middleware(request: NextRequest) {
-  const bypassPaths = new Set(["/admin", "/my-route"])
+  const bypassPaths = new Set(["/admin", "/my-route", "/next"])
 
   // Allow paths in bypassPaths to bypass country code check
   if (

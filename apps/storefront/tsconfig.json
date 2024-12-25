@@ -29,9 +29,15 @@
       "@pages/*": [
         "pages/*"
       ],
+      "@payload-types": [
+        "./types/payload-types.ts"
+      ],
       "@payload-config": [
         "./payload.config.ts"
-      ]
+      ],
+      "@/*": [
+        "./*"
+      ],
     },
     "plugins": [
       {

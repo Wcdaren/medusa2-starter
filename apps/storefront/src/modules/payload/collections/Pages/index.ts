@@ -1,15 +1,5 @@
 import type { CollectionConfig } from "payload"
 
-// import { authenticated } from '../../access/authenticated'
-// import { authenticatedOrPublished } from '../../access/authenticatedOrPublished'
-// import { Archive } from '../../blocks/ArchiveBlock/config'
-// import { CallToAction } from '../../blocks/CallToAction/config'
-// import { Content } from '../../blocks/Content/config'
-// import { FormBlock } from '../../blocks/Form/config'
-// import { MediaBlock } from '../../blocks/MediaBlock/config'
-// import { hero } from '@/heros/config'
-// import { populatePublishedAt } from '../../hooks/populatePublishedAt'
-// import { generatePreviewPath } from '../../utilities/generatePreviewPath'
 import { revalidateDelete, revalidatePage } from "./hooks/revalidatePage"
 
 import {
@@ -23,15 +13,24 @@ import { getServerSideURL } from "@lib/util/getURL"
 import { generatePreviewPath } from "@lib/util/generatePreviewPath"
 import { slugField } from "@modules/payload/fields/slug"
 import { populatePublishedAt } from "@modules/payload/hooks/populatePublishedAt"
+import { hero } from "@modules/payload/heros/config"
+// blocks
+import { CallToAction } from "@modules/payload/blocks/CallToAction/config"
+import { Content } from "@modules/payload/blocks/Content/config"
+import { MediaBlock } from "@modules/payload/blocks/MediaBlock/config"
+import { Archive } from "@modules/payload/blocks/ArchiveBlock/config"
+import { FormBlock } from "@modules/payload/blocks/Form/config"
+import { authenticated } from "@modules/payload/access/authenticated"
+import { authenticatedOrPublished } from "@modules/payload/access/authenticatedOrPublished"
 
 export const Pages: CollectionConfig<"pages"> = {
   slug: "pages",
-  // access: {
-  //   create: authenticated,
-  //   delete: authenticated,
-  //   read: authenticatedOrPublished,
-  //   update: authenticated,
-  // },
+  access: {
+    create: authenticated,
+    delete: authenticated,
+    read: authenticatedOrPublished,
+    update: authenticated,
+  },
   // This config controls what's populated by default when a page is referenced
   // https://payloadcms.com/docs/queries/select#defaultpopulate-collection-config-property
   // Type safe if the collection slug generic is passed to `CollectionConfig` - `CollectionConfig<'pages'>
@@ -57,6 +56,10 @@ export const Pages: CollectionConfig<"pages"> = {
         collection: "pages",
       })
 
+      console.log(
+        "🚀 ~ `${getServerSideURL()}${path}`:",
+        `${getServerSideURL()}${path}`
+      )
       return `${getServerSideURL()}${path}`
     },
     useAsTitle: "title",
@@ -67,53 +70,53 @@ export const Pages: CollectionConfig<"pages"> = {
       type: "text",
       required: true,
     },
-    // {
-    //   type: "tabs",
-    //   tabs: [
-    //     {
-    //       fields: [hero],
-    //       label: "Hero",
-    //     },
-    //     {
-    //       fields: [
-    //         {
-    //           name: "layout",
-    //           type: "blocks",
-    //           blocks: [CallToAction, Content, MediaBlock, Archive, FormBlock],
-    //           required: true,
-    //         },
-    //       ],
-    //       label: "Content",
-    //     },
-    //     {
-    //       name: "meta",
-    //       label: "SEO",
-    //       fields: [
-    //         OverviewField({
-    //           titlePath: "meta.title",
-    //           descriptionPath: "meta.description",
-    //           imagePath: "meta.image",
-    //         }),
-    //         MetaTitleField({
-    //           hasGenerateFn: true,
-    //         }),
-    //         MetaImageField({
-    //           relationTo: "media",
-    //         }),
+    {
+      type: "tabs",
+      tabs: [
+        {
+          fields: [hero],
+          label: "Hero",
+        },
+        {
+          fields: [
+            {
+              name: "layout",
+              type: "blocks",
+              blocks: [CallToAction, Content, MediaBlock, Archive, FormBlock],
+              required: true,
+            },
+          ],
+          label: "Content",
+        },
+        {
+          name: "meta",
+          label: "SEO",
+          fields: [
+            OverviewField({
+              titlePath: "meta.title",
+              descriptionPath: "meta.description",
+              imagePath: "meta.image",
+            }),
+            MetaTitleField({
+              hasGenerateFn: true,
+            }),
+            MetaImageField({
+              relationTo: "media",
+            }),
 
-    //         MetaDescriptionField({}),
-    //         PreviewField({
-    //           // if the `generateUrl` function is configured
-    //           hasGenerateFn: true,
+            MetaDescriptionField({}),
+            PreviewField({
+              // if the `generateUrl` function is configured
+              hasGenerateFn: true,
 
-    //           // field paths to match the target field for data
-    //           titlePath: "meta.title",
-    //           descriptionPath: "meta.description",
-    //         }),
-    //       ],
-    //     },
-    //   ],
-    // },
+              // field paths to match the target field for data
+              titlePath: "meta.title",
+              descriptionPath: "meta.description",
+            }),
+          ],
+        },
+      ],
+    },
     {
       name: "publishedAt",
       type: "date",

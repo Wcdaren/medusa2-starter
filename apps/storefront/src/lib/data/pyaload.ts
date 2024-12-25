@@ -1,7 +1,7 @@
 import configPromise from "@payload-config"
 import { getPayload } from "payload"
 import { unstable_cache } from "next/cache"
-import type { Config } from "types/payload-types"
+import type { Config } from "@payload-types"
 
 type Global = keyof Config["globals"]
 

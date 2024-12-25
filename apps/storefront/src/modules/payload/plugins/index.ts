@@ -12,7 +12,7 @@ import {
   HeadingFeature,
   lexicalEditor,
 } from "@payloadcms/richtext-lexical"
-import { Page, Post } from "types/payload-types"
+import { Page, Post } from "@payload-types"
 import { getServerSideURL } from "@lib/util/getURL"
 import { revalidateRedirects } from "../hooks/revalidateRedirects"
 // import { searchFields } from "@/search/fieldOverrides"

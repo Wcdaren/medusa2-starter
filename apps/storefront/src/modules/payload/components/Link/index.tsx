@@ -3,7 +3,7 @@ import { cn } from "@lib/util/cn"
 import { Button } from "@medusajs/ui"
 import Link from "next/link"
 import React from "react"
-import type { Page, Post } from "types/payload-types"
+import type { Page, Post } from "@payload-types"
 
 // 基于 Button 获取 ButtonProps 类型
 type ButonProps = React.ComponentProps<typeof Button>
