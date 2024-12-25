@@ -42,24 +42,27 @@ export const Pages: CollectionConfig<"pages"> = {
     defaultColumns: ["title", "slug", "updatedAt"],
     livePreview: {
       url: ({ data }) => {
+        // TODO 感觉以后可以在这里处理 country code
+        console.debug("🚀 ~ file: index.ts:45 ~ data:", data)
         const path = generatePreviewPath({
           slug: typeof data?.slug === "string" ? data.slug : "",
           collection: "pages",
         })
 
+        console.debug(
+          "🚀 ~ file: index.ts:54 ~ `${getServerSideURL()}${path}`:",
+          `${getServerSideURL()}${path}`
+        )
         return `${getServerSideURL()}${path}`
       },
     },
     preview: (data) => {
+      console.debug("🚀 ~ file: index.ts:54 ~ data:", data)
       const path = generatePreviewPath({
         slug: typeof data?.slug === "string" ? data.slug : "",
         collection: "pages",
       })
 
-      console.log(
-        "🚀 ~ `${getServerSideURL()}${path}`:",
-        `${getServerSideURL()}${path}`
-      )
       return `${getServerSideURL()}${path}`
     },
     useAsTitle: "title",

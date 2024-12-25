@@ -1,4 +1,5 @@
 import { getBaseURL } from "@lib/util/env"
+import { LivePreviewListener } from "@modules/payload/components/LivePreviewListener"
 import { Metadata } from "next"
 import "styles/globals.css"
 
@@ -11,6 +12,7 @@ export default function RootLayout(props: { children: React.ReactNode }) {
     <html lang="en" data-mode="light">
       <body>
         <main className="relative">{props.children}</main>
+        <LivePreviewListener />
       </body>
     </html>
   )

@@ -21,6 +21,7 @@
     "@medusajs/js-sdk": "latest",
     "@medusajs/ui": "latest",
     "@payloadcms/db-postgres": "latest",
+    "@payloadcms/live-preview-react": "latest",
     "@payloadcms/next": "latest",
     "@payloadcms/payload-cloud": "latest",
     "@payloadcms/plugin-form-builder": "latest",

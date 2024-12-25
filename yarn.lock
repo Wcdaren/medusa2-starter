@@ -5744,6 +5744,25 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@payloadcms/live-preview-react@npm:latest":
+  version: 3.11.0
+  resolution: "@payloadcms/live-preview-react@npm:3.11.0"
+  dependencies:
+    "@payloadcms/live-preview": "npm:3.11.0"
+  peerDependencies:
+    react: ^19.0.0 || ^19.0.0-rc-65a56d0e-20241020
+    react-dom: ^19.0.0 || ^19.0.0-rc-65a56d0e-20241020
+  checksum: 10c0/766690da311bf502f517093f7a54a1c0b6b649aa65c00cb10063ff5f9d4e53771aefe5cb554737602804511f6c83e6d3222981adbc2b3929700732681633fdd6
+  languageName: node
+  linkType: hard
+
+"@payloadcms/live-preview@npm:3.11.0":
+  version: 3.11.0
+  resolution: "@payloadcms/live-preview@npm:3.11.0"
+  checksum: 10c0/dde878269d4d16d37fd6174892060d222e9f68eb2d1523e5b6d1004e11327056d124627766ab844212cb3aa9e638f1d48cf3e44d30f357b6613c084d9767894f
+  languageName: node
+  linkType: hard
+
 "@payloadcms/next@npm:3.11.0, @payloadcms/next@npm:latest":
   version: 3.11.0
   resolution: "@payloadcms/next@npm:3.11.0"
@@ -18467,6 +18486,7 @@ __metadata:
     "@medusajs/ui": "npm:latest"
     "@medusajs/ui-preset": "npm:latest"
     "@payloadcms/db-postgres": "npm:latest"
+    "@payloadcms/live-preview-react": "npm:latest"
     "@payloadcms/next": "npm:latest"
     "@payloadcms/payload-cloud": "npm:latest"
     "@payloadcms/plugin-form-builder": "npm:latest"
