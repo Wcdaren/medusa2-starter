@@ -23,6 +23,14 @@ import type {
   MediaBlock as MediaBlockProps,
   BannerBlock as BannerBlockProps,
 } from "@payload-types"
+import { BannerBlock } from "@modules/payload/blocks/Banner/Component"
+import { MediaBlock } from "@modules/payload/blocks/MediaBlock/Component"
+import {
+  CodeBlock,
+  CodeBlockProps,
+} from "@modules/payload/blocks/Code/Component"
+import { CallToActionBlock } from "@modules/payload/blocks/CallToAction/Component"
+import { CMSLink } from "../Link"
 
 export type NodeTypes =
   | DefaultNodeTypes

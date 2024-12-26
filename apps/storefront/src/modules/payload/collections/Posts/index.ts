@@ -11,10 +11,6 @@ import {
 
 import { authenticated } from "../../access/authenticated"
 import { authenticatedOrPublished } from "../../access/authenticatedOrPublished"
-// import { Banner } from "../../blocks/Banner/config"
-// import { Code } from "../../blocks/Code/config"
-// import { MediaBlock } from "../../blocks/MediaBlock/config"
-// import { generatePreviewPath } from "../../utilities/generatePreviewPath"
 import { populateAuthors } from "./hooks/populateAuthors"
 import { revalidateDelete, revalidatePost } from "./hooks/revalidatePost"
 
@@ -28,6 +24,9 @@ import {
 import { generatePreviewPath } from "@lib/util/generatePreviewPath"
 import { getServerSideURL } from "@lib/util/getURL"
 import { slugField } from "@modules/payload/fields/slug"
+import { Banner } from "@modules/payload/blocks/Banner/config"
+import { Code } from "@modules/payload/blocks/Code/config"
+import { MediaBlock } from "@modules/payload/blocks/MediaBlock/config"
 // import { slugField } from "@/fields/slug"
 // import { getServerSideURL } from "@/utilities/getURL"
 
@@ -94,7 +93,7 @@ export const Posts: CollectionConfig<"posts"> = {
                     HeadingFeature({
                       enabledHeadingSizes: ["h1", "h2", "h3", "h4"],
                     }),
-                    // BlocksFeature({ blocks: [Banner, Code, MediaBlock] }),
+                    BlocksFeature({ blocks: [Banner, Code, MediaBlock] }),
                     FixedToolbarFeature(),
                     InlineToolbarFeature(),
                     HorizontalRuleFeature(),

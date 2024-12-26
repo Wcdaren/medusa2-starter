@@ -166,6 +166,9 @@ importers:
       '@radix-ui/react-accordion':
         specifier: ^1.2.1
         version: 1.2.2(@types/react-dom@18.3.5(@types/react@18.3.18))(@types/react@18.3.18)(react-dom@19.0.0-rc-66855b96-20241106(react@19.0.0-rc-66855b96-20241106))(react@19.0.0-rc-66855b96-20241106)
+      '@repo/design-system':
+        specifier: workspace:*
+        version: link:../../packages/design-system
       '@stripe/react-stripe-js':
         specifier: ^1.7.2
         version: 1.16.5(@stripe/stripe-js@1.54.2)(react-dom@19.0.0-rc-66855b96-20241106(react@19.0.0-rc-66855b96-20241106))(react@19.0.0-rc-66855b96-20241106)
@@ -190,6 +193,9 @@ importers:
       payload:
         specifier: latest
         version: 3.11.0(graphql@16.10.0)(monaco-editor@0.52.2)(react-dom@19.0.0-rc-66855b96-20241106(react@19.0.0-rc-66855b96-20241106))(react@19.0.0-rc-66855b96-20241106)(typescript@5.7.2)
+      prism-react-renderer:
+        specifier: ^2.4.1
+        version: 2.4.1(react@19.0.0-rc-66855b96-20241106)
       qs:
         specifier: ^6.12.1
         version: 6.13.1
