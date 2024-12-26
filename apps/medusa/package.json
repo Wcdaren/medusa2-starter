@@ -19,14 +19,14 @@
     "start": "medusa start",
     "dev": "medusa develop",
     "sync": "medusa db:sync-links",
-    "migrate:prod": "yarn run migrate && yarn run sync",
+    "migrate:prod": "pnpm run migrate && pnpm run sync",
     "start:prod": "medusa start",
     "seed:prod": "medusa exec ./src/scripts/seed.ts",
     "migrate": "npx medusa db:migrate",
     "test:integration:http": "TEST_TYPE=integration:http NODE_OPTIONS=--experimental-vm-modules jest --silent=false --runInBand --forceExit",
     "test:integration:modules": "TEST_TYPE=integration:modules NODE_OPTIONS=--experimental-vm-modules jest --silent --runInBand --forceExit",
     "test:unit": "TEST_TYPE=unit NODE_OPTIONS=--experimental-vm-modules jest --silent --runInBand --forceExit",
-    "medusa:init": "yarn run nukedb && sleep 5 &&medusa db:create --db medusa2 && yarn run migrate && yarn run sync && yarn run seed && yarn run add-user",
+    "medusa:init": "pnpm run nukedb && sleep 5 &&medusa db:create --db medusa2 && pnpm run migrate && pnpm run sync && pnpm run seed && pnpm run add-user",
     "add-user": "medusa user --email admin@medusa.local.com --password supersecret && medusa user --email admin@lambdacurry.dev --password password"
   },
   "dependencies": {
