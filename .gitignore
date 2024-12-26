@@ -41,3 +41,6 @@ yarn-error.log*
 
 .yarn/install-state.gz
 *-values.yaml
+
+# Test
+apps/storefront/public/media/*
